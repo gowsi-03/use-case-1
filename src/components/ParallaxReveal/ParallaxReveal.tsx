@@ -5,8 +5,9 @@ import Image from "next/image";
 import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useIsMobile } from "@/hooks";
 import styles from "./ParallaxReveal.module.css";
+
 
 const { Title, Paragraph } = Typography;
 gsap.registerPlugin(ScrollTrigger);
