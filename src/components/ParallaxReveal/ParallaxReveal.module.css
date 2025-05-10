@@ -1,0 +1,84 @@
+.layout :global(.ant-layout) {
+  max-width: 1320px;
+  margin: "0 auto";
+  padding: "6.4rem 0";
+  width: "82.5%";
+}
+
+.layoutWrapper {
+  margin: 0 20px;
+  padding: 3.2rem 0;
+}
+
+@media (min-width: 768px) {
+  .layoutWrapper {
+    margin: 0 auto;
+    padding: 3.2rem 0;
+    width: 92%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layoutWrapper {
+    margin: 0 auto;
+    padding: 6.4rem 0;
+    width: 94%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .layoutWrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 6.4rem 0;
+    width: 82.5%;
+  }
+}
+
+.titleWrapper:global(.ant-typography) {
+  font-size: 32px;
+  letter-spacing: -0.32px;
+  line-height: 36.16px;
+}
+
+@media (min-width: 768px) {
+  .titleWrapper :global(.ant-typography) {
+    font-size: 40px;
+    letter-spacing: -0.4px;
+    line-height: 45.2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .titleWrapper :global(.ant-typography) {
+    font-size: 56px;
+    letter-spacing: -1.12px;
+    line-height: 63.84px;
+  }
+}
+
+.sectionTitle :global(.ant-typography) {
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle :global(.ant-typography) {
+    font-size: 22px;
+    line-height: 28.6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle :global(.ant-typography) {
+    line-height: 29.92px;
+  }
+}
+
+.sectionPara :global(.ant-typography) {
+    font-size: 16px;
+    line-height: 26.08px;
+    margin-bottom: 2.4rem;
+    font-weight: 400;
+  }

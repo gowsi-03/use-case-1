@@ -6,6 +6,7 @@ import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import styles from "./ParallaxReveal.module.css";
 
 const { Title, Paragraph } = Typography;
 gsap.registerPlugin(ScrollTrigger);
@@ -21,6 +22,7 @@ const Slide: React.FC<SlideProps> = () => null;
 type Props = {
   children: ReactNode;
 };
+console.log(styles.heading);
 
 const ParallaxRevealSlider = ({ children }: Props) => {
   const isMobile = useIsMobile(768);
@@ -81,15 +83,14 @@ const ParallaxRevealSlider = ({ children }: Props) => {
   }, [isMobile, slides.length]);
 
   return (
-    <Layout style={{ maxWidth: 1600, margin: "0 auto", padding: "80px 24px" }}>
+    <Layout className={styles.layoutWrapper}>
       <Row gutter={[24, 24]}>
-        <Col span={24} md={14}>
-          <Title
-            level={1}
-            style={{ fontSize: 56, fontWeight: 700, marginBottom: 56 }}
-          >
-            Digital experiences make or break your brand
-          </Title>
+        <Col span={24} md={16}>
+          <div className={styles.titleWrapper}>
+            <Title level={1}>
+              Digital experiences make or break your brand
+            </Title>
+          </div>
         </Col>
       </Row>
 
@@ -110,12 +111,12 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                 }}
               />
               <div>
-                <Title level={3} style={{ marginBottom: 16 }}>
-                  {section.title}
-                </Title>
-                <Paragraph style={{ fontSize: 16, lineHeight: "1.7em" }}>
-                  {section.subtitle}
-                </Paragraph>
+                <div className={styles.sectionTitle}>
+                  <Title level={3}>{section.title}</Title>
+                </div>
+                <div className={styles.sectionPara}>
+                  <Paragraph>{section.subtitle}</Paragraph>
+                </div>
               </div>
             </div>
           ))}
@@ -140,18 +141,19 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                     idx === 0 ? "blur-sm" : "opacity-0 blur-sm"
                   }`}
                 >
-                  <Title level={3} style={{ marginBottom: 16 }}>
-                    {section.title}
-                  </Title>
-                  <Paragraph style={{ fontSize: 16, lineHeight: "1.7em" }}>
-                    {section.subtitle}
-                  </Paragraph>
+                  <div className={styles.sectionTitle}>
+                    <Title level={3}>{section.title}</Title>
+                  </div>
+
+                  <div className={styles.sectionPara}>
+                    <Paragraph>{section.subtitle}</Paragraph>
+                  </div>
                 </div>
               </section>
             ))}
           </Col>
 
-          <Col span={12}>
+          <Col span={12} style={{paddingLeft:'12px', paddingRight:'32px'}}>
             <div
               style={{
                 position: "sticky",
@@ -181,7 +183,6 @@ const ParallaxRevealSlider = ({ children }: Props) => {
   );
 };
 
-// ✅ Attach `Slide` and export as object
 const ParallaxReveal = Object.assign(ParallaxRevealSlider, { Slide });
 
 export { ParallaxReveal };
