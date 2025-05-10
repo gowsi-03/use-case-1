@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import React, { ReactNode } from 'react';
+import { Col, Row } from "antd";
+import Image from "next/image";
+import React, { ReactNode } from "react";
 
 interface SlideProps {
   title: string;
@@ -15,15 +16,32 @@ interface ParallaxSliderProps {
 
 const Slide: React.FC<SlideProps> = ({ title, subtitle, image }) => {
   return (
-    <div className="slide">
-      <Image src={image} alt={title} width={200} height={200}/>
-      <h2>{title}</h2>
-      <p>{subtitle}</p>
+    <div style={{ padding: "40px 0" }}>
+      <Row gutter={32} align="top">
+        {/* Text on the left */}
+        <Col xs={24} md={12}>
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
+        </Col>
+
+        {/* Image on the right */}
+        <Col xs={24} md={12}>
+          <Image
+            width={200}
+            height={200}
+            src={image}
+            alt={title}
+            style={{ width: "100%", borderRadius: "12px", height:'100%' }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };
 
-const ParallaxSlider: React.FC<ParallaxSliderProps> & { Slide: React.FC<SlideProps> } = ({ children }) => {
+const ParallaxSlider: React.FC<ParallaxSliderProps> & {
+  Slide: React.FC<SlideProps>;
+} = ({ children }) => {
   return <div className="parallax-slider">{children}</div>;
 };
 
