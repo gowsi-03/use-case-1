@@ -1,1 +1,1 @@
-export * from './ParallaxSlider';
+export * from './ParallaxReveal';

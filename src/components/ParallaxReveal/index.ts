@@ -1,0 +1,1 @@
+export { ParallaxReveal } from './ParallaxReveal';
