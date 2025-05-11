@@ -57,7 +57,7 @@
   }
 }
 
-.sectionTitle :global(.ant-typography) {
+/* .sectionTitle :global(.ant-typography) {
   font-size: 20px;
   line-height: 26px;
   margin-bottom: 1.6rem;
@@ -81,4 +81,4 @@
     line-height: 26.08px;
     margin-bottom: 2.4rem;
     font-weight: 400;
-  }
+  } */

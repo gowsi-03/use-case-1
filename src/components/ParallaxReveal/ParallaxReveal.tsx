@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useEffect, useRef, useState, ReactNode } from "react";
-import Image from "next/image";
 import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useIsMobile } from "@/hooks";
 import styles from "./ParallaxReveal.module.css";
+import { ImageDisplay, TextContent } from "./components";
 
-
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 gsap.registerPlugin(ScrollTrigger);
 
 type SlideProps = {
@@ -99,26 +98,9 @@ const ParallaxRevealSlider = ({ children }: Props) => {
         <div>
           {slides.map((section, idx) => (
             <div key={idx} style={{ marginBottom: 80 }}>
-              <Image
-                src={section.image}
-                alt={section.title}
-                width={600}
-                height={400}
-                style={{
-                  borderRadius: 16,
-                  width: "100%",
-                  height: "auto",
-                  marginBottom: 24,
-                }}
-              />
-              <div>
-                <div className={styles.sectionTitle}>
-                  <Title level={3}>{section.title}</Title>
-                </div>
-                <div className={styles.sectionPara}>
-                  <Paragraph>{section.subtitle}</Paragraph>
-                </div>
-              </div>
+              {/* Use the ImageDisplay and TextContent components here */}
+              <ImageDisplay src={section.image} alt={section.title} />
+              <TextContent title={section.title} subtitle={section.subtitle} />
             </div>
           ))}
         </div>
@@ -142,19 +124,17 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                     idx === 0 ? "blur-sm" : "opacity-0 blur-sm"
                   }`}
                 >
-                  <div className={styles.sectionTitle}>
-                    <Title level={3}>{section.title}</Title>
-                  </div>
-
-                  <div className={styles.sectionPara}>
-                    <Paragraph>{section.subtitle}</Paragraph>
-                  </div>
+                  {/* Use the TextContent component here */}
+                  <TextContent
+                    title={section.title}
+                    subtitle={section.subtitle}
+                  />
                 </div>
               </section>
             ))}
           </Col>
 
-          <Col span={12} style={{paddingLeft:'12px', paddingRight:'32px'}}>
+          <Col span={12} style={{ paddingLeft: "12px", paddingRight: "32px" }}>
             <div
               style={{
                 position: "sticky",
@@ -163,19 +143,13 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                 width: "100%",
               }}
             >
-              <Image
-                src={slides[activeIndex].image}
-                alt={slides[activeIndex].title}
-                width={600}
-                height={400}
-                style={{
-                  borderRadius: 16,
-                  width: "100%",
-                  height: "auto",
-                  transition: "opacity 0.5s ease-in-out",
-                }}
-                priority
-              />
+              {/* Use the ImageDisplay component here */}
+              {slides[activeIndex] && (
+                <ImageDisplay
+                  src={slides[activeIndex].image}
+                  alt={slides[activeIndex].title}
+                />
+              )}
             </div>
           </Col>
         </Row>
