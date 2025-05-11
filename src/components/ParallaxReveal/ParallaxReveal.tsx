@@ -85,7 +85,7 @@ const ParallaxRevealSlider = ({ children }: Props) => {
   return (
     <Layout className={styles.layoutWrapper}>
       <Row gutter={[24, 24]}>
-        <Col span={24} md={16}>
+        <Col span={24} md={22} lg={14}>
           <div className={styles.titleWrapper}>
             <Title level={1}>
               Digital experiences make or break your brand
