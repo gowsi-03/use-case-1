@@ -10,7 +10,7 @@ import React, {
 import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useIsMobile } from "@/hooks";
+import { useHasMounted, useIsMobile } from "@/hooks";
 import styles from "./ParallaxReveal.module.css";
 import { ImageDisplay, TextContent } from "./components";
 
@@ -32,6 +32,7 @@ const Slide: React.FC<SlideProps> = () => null;
 const ParallaxReveal: React.FC<Props> & {
   Slide: React.FC<SlideProps>;
 } = ({ children }) => {
+  const hasMounted = useHasMounted();
   const isMobile = useIsMobile(768);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -48,7 +49,7 @@ const ParallaxReveal: React.FC<Props> & {
     }));
 
   useEffect(() => {
-    if (isMobile) return;
+    if (!hasMounted || isMobile) return;
 
     ScrollTrigger.getAll().forEach((st) => st.kill());
 
@@ -87,7 +88,10 @@ const ParallaxReveal: React.FC<Props> & {
     });
 
     return () => ScrollTrigger.getAll().forEach((st) => st.kill());
-  }, [isMobile, slides.length]);
+  }, [hasMounted, isMobile, slides.length]);
+
+  // Prevent hydration mismatch
+  if (!hasMounted) return null;
 
   return (
     <Layout className={styles.layoutWrapper} style={{ background: "white" }}>
