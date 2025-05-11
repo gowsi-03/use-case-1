@@ -1,1 +1,1 @@
-export { ParallaxReveal } from './ParallaxReveal';
+export { default as ParallaxReveal } from './ParallaxReveal'

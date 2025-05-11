@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState, ReactNode } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  ReactNode,
+  ReactElement,
+} from "react";
 import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -17,28 +23,29 @@ type SlideProps = {
   image: string;
 };
 
-const Slide: React.FC<SlideProps> = () => null;
-
 type Props = {
   children: ReactNode;
 };
-console.log(styles.heading);
 
-const ParallaxRevealSlider = ({ children }: Props) => {
+const Slide: React.FC<SlideProps> = () => null;
+
+const ParallaxReveal: React.FC<Props> & {
+  Slide: React.FC<SlideProps>;
+} = ({ children }) => {
   const isMobile = useIsMobile(768);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
   const slides = React.Children.toArray(children)
-    .filter((child) => React.isValidElement(child) && child.type === Slide)
-    .map((child) => {
-      const slide = child as React.ReactElement<SlideProps>;
-      return {
-        title: slide.props.title,
-        subtitle: slide.props.subtitle,
-        image: slide.props.image,
-      };
-    });
+    .filter(
+      (child): child is ReactElement<SlideProps> =>
+        React.isValidElement(child) && child.type === Slide
+    )
+    .map((child) => ({
+      title: child.props.title,
+      subtitle: child.props.subtitle,
+      image: child.props.image,
+    }));
 
   useEffect(() => {
     if (isMobile) return;
@@ -83,7 +90,7 @@ const ParallaxRevealSlider = ({ children }: Props) => {
   }, [isMobile, slides.length]);
 
   return (
-    <Layout className={styles.layoutWrapper}>
+    <Layout className={styles.layoutWrapper} style={{ background: "white" }}>
       <Row gutter={[24, 24]}>
         <Col span={24} md={22} lg={14}>
           <div className={styles.titleWrapper}>
@@ -97,8 +104,7 @@ const ParallaxRevealSlider = ({ children }: Props) => {
       {isMobile ? (
         <div>
           {slides.map((section, idx) => (
-            <div key={idx} style={{ marginBottom: 80 }}>
-              {/* Use the ImageDisplay and TextContent components here */}
+            <div key={idx} style={{ marginBottom: isMobile ? 100 : 80 }}>
               <ImageDisplay src={section.image} alt={section.title} />
               <TextContent title={section.title} subtitle={section.subtitle} />
             </div>
@@ -124,7 +130,6 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                     idx === 0 ? "blur-sm" : "opacity-0 blur-sm"
                   }`}
                 >
-                  {/* Use the TextContent component here */}
                   <TextContent
                     title={section.title}
                     subtitle={section.subtitle}
@@ -143,7 +148,6 @@ const ParallaxRevealSlider = ({ children }: Props) => {
                 width: "100%",
               }}
             >
-              {/* Use the ImageDisplay component here */}
               {slides[activeIndex] && (
                 <ImageDisplay
                   src={slides[activeIndex].image}
@@ -158,6 +162,6 @@ const ParallaxRevealSlider = ({ children }: Props) => {
   );
 };
 
-const ParallaxReveal = Object.assign(ParallaxRevealSlider, { Slide });
+ParallaxReveal.Slide = Slide;
 
-export { ParallaxReveal };
+export default ParallaxReveal;
