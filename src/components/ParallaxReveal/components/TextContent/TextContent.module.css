@@ -1,3 +1,13 @@
+.textContentWrapper {
+  margin-top: 2.4rem;
+}
+
+@media (min-width: 1024px) {
+  .textContentWrapper {
+    margin-top: 0;
+  }
+}
+
 .sectionTitle :global(.ant-typography) {
   font-size: 20px;
   line-height: 26px;
