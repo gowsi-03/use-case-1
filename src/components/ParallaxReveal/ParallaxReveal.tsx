@@ -119,13 +119,13 @@ const ParallaxReveal: React.FC<Props> & {
           <Col span={12}>
             {slides.map((section, idx) => (
               <section
+              className={styles.sectionWrapper}
                 key={idx}
                 ref={(el) => {
                   sectionRefs.current[idx] = el;
                 }}
                 style={{
                   minHeight: "70vh",
-                  paddingRight: 36,
                   marginTop: idx > 0 ? 200 : 0,
                 }}
               >

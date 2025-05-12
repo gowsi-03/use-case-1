@@ -8,6 +8,7 @@
 .layoutWrapper {
   margin: 0 20px;
   padding: 3.2rem 0;
+  background-color: white !important;
 }
 
 @media (min-width: 768px) {
@@ -35,6 +36,33 @@
   }
 }
 
+@media (min-width: 1900px) {
+    .layoutWrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 6.4rem 0;
+      width: 82.5%;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .layoutWrapper {
+      max-width: 1460px;
+      margin: 0 auto;
+      padding: 6.4rem 0;
+      width: 82.5%;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    .layoutWrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 6.4rem 0;
+      width: 82.5%;
+    }
+  }
+
 .titleWrapper :global(.ant-typography) {
   font-size: 32px;
   letter-spacing: -0.32px;
@@ -56,6 +84,19 @@
     line-height: 63.84px;
   }
 }
+
+@media (min-width: 1024px) {
+    .sectionWrapper {
+        padding-right: 4rem
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .sectionWrapper {
+        padding-right: 5rem
+    }
+  }
+
 
 /* .sectionTitle :global(.ant-typography) {
   font-size: 20px;
