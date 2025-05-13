@@ -27,7 +27,7 @@ type ParallaxRevealProps = {
   children: ReactNode;
 };
 
-const Slide = () => null;
+const Slide = ({}: SlideProps): null => null;
 
 function ParallaxReveal({ children }: ParallaxRevealProps) {
   const hasMounted = useHasMounted();
