@@ -141,20 +141,20 @@ function ParallaxReveal({ children }: ParallaxRevealProps) {
           </Col>
 
           <Col span={12} style={{ paddingLeft: "12px", paddingRight: "32px" }}>
-            <div
-              style={{
-                position: "sticky",
-                top: "30%",
-                transform: "translateY(0)",
-                width: "100%",
-              }}
-            >
-              {slides[activeIndex] && (
-                <ImageDisplay
-                  src={slides[activeIndex].image}
-                  alt={slides[activeIndex].title}
-                />
-              )}
+            <div className={styles.imageWrapper}>
+              <div
+                className={styles.imageWrapper}
+                style={{ width: "100%", height: "70vh" }}
+              >
+                <div className={styles.imageContainer}>
+                  {slides[activeIndex] && (
+                    <ImageDisplay
+                      src={slides[activeIndex].image}
+                      alt={slides[activeIndex].title}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           </Col>
         </Row>

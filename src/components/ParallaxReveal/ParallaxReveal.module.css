@@ -37,31 +37,31 @@
 }
 
 @media (min-width: 1900px) {
-    .layoutWrapper {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 6.4rem 0;
-      width: 82.5%;
-    }
+  .layoutWrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 6.4rem 0;
+    width: 82.5%;
   }
+}
 
-  @media (min-width: 1920px) {
-    .layoutWrapper {
-      max-width: 1460px;
-      margin: 0 auto;
-      padding: 6.4rem 0;
-      width: 82.5%;
-    }
+@media (min-width: 1920px) {
+  .layoutWrapper {
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 6.4rem 0;
+    width: 82.5%;
   }
+}
 
-  @media (min-width: 2000px) {
-    .layoutWrapper {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 6.4rem 0;
-      width: 82.5%;
-    }
+@media (min-width: 2000px) {
+  .layoutWrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 6.4rem 0;
+    width: 82.5%;
   }
+}
 
 .titleWrapper :global(.ant-typography) {
   font-size: 32px;
@@ -86,17 +86,33 @@
 }
 
 @media (min-width: 1024px) {
-    .sectionWrapper {
-        padding-right: 4rem
-    }
+  .sectionWrapper {
+    padding-right: 4rem;
   }
+}
 
-  @media (min-width: 1440px) {
-    .sectionWrapper {
-        padding-right: 5rem
-    }
+@media (min-width: 1440px) {
+  .sectionWrapper {
+    padding-right: 5rem;
   }
+}
 
+.imageWrapper {
+  flex: 1;
+  position: sticky;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 /* .sectionTitle :global(.ant-typography) {
   font-size: 20px;
