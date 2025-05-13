@@ -23,15 +23,13 @@ type SlideProps = {
   image: string;
 };
 
-type Props = {
+type ParallaxRevealProps = {
   children: ReactNode;
 };
 
-const Slide: React.FC<SlideProps> = () => null;
+const Slide = () => null;
 
-const ParallaxReveal: React.FC<Props> & {
-  Slide: React.FC<SlideProps>;
-} = ({ children }) => {
+function ParallaxReveal({ children }: ParallaxRevealProps) {
   const hasMounted = useHasMounted();
   const isMobile = useIsMobile(768);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -90,7 +88,6 @@ const ParallaxReveal: React.FC<Props> & {
     return () => ScrollTrigger.getAll().forEach((st) => st.kill());
   }, [hasMounted, isMobile, slides.length]);
 
-  // Prevent hydration mismatch
   if (!hasMounted) return null;
 
   return (
@@ -119,11 +116,11 @@ const ParallaxReveal: React.FC<Props> & {
           <Col span={12}>
             {slides.map((section, idx) => (
               <section
-              className={styles.sectionWrapper}
                 key={idx}
                 ref={(el) => {
                   sectionRefs.current[idx] = el;
                 }}
+                className={styles.sectionWrapper}
                 style={{
                   minHeight: "70vh",
                   marginTop: idx > 0 ? 200 : 0,
@@ -164,7 +161,7 @@ const ParallaxReveal: React.FC<Props> & {
       )}
     </Layout>
   );
-};
+}
 
 ParallaxReveal.Slide = Slide;
 
