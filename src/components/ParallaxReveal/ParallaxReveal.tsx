@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  ReactNode,
-  ReactElement,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -17,34 +11,76 @@ import { ImageDisplay, TextContent } from "./components";
 const { Title } = Typography;
 gsap.registerPlugin(ScrollTrigger);
 
-type SlideProps = {
+type SlideData = {
   title: string;
   subtitle: string;
-  image: string;
+  image?: string;
 };
 
 type ParallaxRevealProps = {
-  children: ReactNode;
+  slideOneTitle: string;
+  slideOneSubtitle: string;
+  slideOneImage: string;
+  slideTwoTitle: string;
+  slideTwoSubtitle: string;
+  slideTwoImage: string;
+  slideThreeTitle?: string;
+  slideThreeSubtitle?: string;
+  slideThreeImage?: string;
+  slideFourTitle?: string;
+  slideFourSubtitle?: string;
+  slideFourImage?: string;
 };
 
-const Slide = ({}: SlideProps): null => null;
-
-function ParallaxReveal({ children }: ParallaxRevealProps) {
+export default function ParallaxReveal({
+  slideOneTitle,
+  slideOneSubtitle,
+  slideOneImage,
+  slideTwoTitle,
+  slideTwoSubtitle,
+  slideTwoImage,
+  slideThreeTitle,
+  slideThreeSubtitle,
+  slideThreeImage,
+  slideFourTitle,
+  slideFourSubtitle,
+  slideFourImage,
+}: ParallaxRevealProps) {
   const hasMounted = useHasMounted();
   const isMobile = useIsMobile(768);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const slides = React.Children.toArray(children)
-    .filter(
-      (child): child is ReactElement<SlideProps> =>
-        React.isValidElement(child) && child.type === Slide
-    )
-    .map((child) => ({
-      title: child.props.title,
-      subtitle: child.props.subtitle,
-      image: child.props.image,
-    }));
+  const slides: SlideData[] = [
+    {
+      title: slideOneTitle,
+      subtitle: slideOneSubtitle,
+      image: slideOneImage,
+    },
+    {
+      title: slideTwoTitle,
+      subtitle: slideTwoSubtitle,
+      image: slideTwoImage,
+    },
+    ...(slideThreeTitle && slideThreeSubtitle && slideThreeImage
+      ? [
+          {
+            title: slideThreeTitle,
+            subtitle: slideThreeSubtitle,
+            image: slideThreeImage,
+          },
+        ]
+      : []),
+    ...(slideFourTitle && slideFourSubtitle && slideFourImage
+      ? [
+          {
+            title: slideFourTitle,
+            subtitle: slideFourSubtitle,
+            image: slideFourImage,
+          },
+        ]
+      : []),
+  ];
 
   useEffect(() => {
     if (!hasMounted || isMobile) return;
@@ -106,7 +142,10 @@ function ParallaxReveal({ children }: ParallaxRevealProps) {
         <div>
           {slides.map((section, idx) => (
             <div key={idx} style={{ marginBottom: isMobile ? 100 : 80 }}>
-              <ImageDisplay src={section.image} alt={section.title} />
+              <ImageDisplay
+                src={`https:${section.image || ''}`} 
+                alt={section.title}
+              />
               <TextContent title={section.title} subtitle={section.subtitle} />
             </div>
           ))}
@@ -147,9 +186,9 @@ function ParallaxReveal({ children }: ParallaxRevealProps) {
                 style={{ width: "100%", height: "70vh" }}
               >
                 <div className={styles.imageContainer}>
-                  {slides[activeIndex] && (
+                  {slides[activeIndex].image && (
                     <ImageDisplay
-                      src={slides[activeIndex].image}
+                      src={`https:${slides[activeIndex].image}`}
                       alt={slides[activeIndex].title}
                     />
                   )}
@@ -162,7 +201,3 @@ function ParallaxReveal({ children }: ParallaxRevealProps) {
     </Layout>
   );
 }
-
-ParallaxReveal.Slide = Slide;
-
-export default ParallaxReveal;

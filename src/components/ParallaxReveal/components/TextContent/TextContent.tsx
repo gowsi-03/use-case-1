@@ -1,16 +1,18 @@
 import { Typography } from "antd";
 import styles from "./TextContent.module.css";
 import React from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Document } from "@contentful/rich-text-types";
 
 const { Title, Paragraph } = Typography;
 
 type Props = {
   title: string;
-  subtitle: string;
+  subtitle: string | Document;
 };
 
 const TextContent = ({ title, subtitle }: Props) => {
-  const hasLineBreaks = /<br\s*\/?>/i.test(subtitle);
+  const hasLineBreaks = typeof subtitle === "string" && /<br\s*\/?>/i.test(subtitle);
 
   return (
     <div className={styles.textContentWrapper}>
@@ -19,14 +21,16 @@ const TextContent = ({ title, subtitle }: Props) => {
       </div>
       <div className={styles.sectionPara}>
         <Paragraph>
-          {hasLineBreaks
-            ? subtitle.split(/<br\s*\/?>/i).map((part, idx, arr) => (
-                <React.Fragment key={idx}>
-                  {part.trim()}
-                  {idx < arr.length - 1 && <br />}
-                </React.Fragment>
-              ))
-            : subtitle}
+          {typeof subtitle === "string"
+            ? hasLineBreaks
+              ? subtitle.split(/<br\s*\/?>/i).map((part, idx, arr) => (
+                  <React.Fragment key={idx}>
+                    {part.trim()}
+                    {idx < arr.length - 1 && <br />}
+                  </React.Fragment>
+                ))
+              : subtitle
+            : documentToReactComponents(subtitle)}
         </Paragraph>
       </div>
     </div>
