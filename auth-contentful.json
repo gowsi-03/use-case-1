@@ -1,0 +1,141 @@
+{
+  "cookies": [
+    {
+      "name": "_auth_new_session",
+      "value": "f765a9dec9f34895131a35fec17f58a6",
+      "domain": "be.contentful.com",
+      "path": "/",
+      "expires": 1747784908.032288,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "session_sync",
+      "value": "true",
+      "domain": ".contentful.com",
+      "path": "/",
+      "expires": 1747784908,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "__Secure-ect",
+      "value": "pkWpxGc7RYw5a1AfIWhCPBnPDVUNZHJ8Zinhdhz7MsKVTJrJGDWIN2q0YYgFeWHe84oLiizzKrtlnPRk0_VD9r3FtFqCUZycpl1mOPNxPIx2Qq6_Gw4nQhtkskX-Zn0",
+      "domain": ".secure.ctfassets.net",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "osano_consentmanager_uuid",
+      "value": "06e25d14-06f8-43d5-8226-b34b64eadf9c",
+      "domain": ".app.contentful.com",
+      "path": "/",
+      "expires": 1779277709.947281,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "osano_consentmanager",
+      "value": "iylztNb0kLPJe0_F-mebaLZ32MX2hxKjMz_fDEXrya66Wddj71buwinSrrH0CKs1jjGs03ONMd9dOmW426wLZMRy4jg9CxZ-jwGWjvv-Bm8eBHWv01ZRH1BchtgZM23DARD6_ICq_cIX7fmVZaK-WqF60QyXeT5x7OPWB2IwW2eiM8fFeO_ySbkb5mirimpsZAYEH9kcCJibld8FCefInhJ86Z8WQIQC-HatgfO8qLPDuq3pRYv5h7iuSDtcwFBYqF7zKpsjiwQ1daRqGzPlz4PsSAKfC16SST0HuG0w19FeiWV5x_yUKsiDaqUaYZphv49onBUcVhs=",
+      "domain": ".app.contentful.com",
+      "path": "/",
+      "expires": 1779277709.947497,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_mkto_trk",
+      "value": "id:597-PWP-156&token:_mch-contentful.com-c72fa4ca6e89928951305e9690ce0a69",
+      "domain": ".contentful.com",
+      "path": "/",
+      "expires": 1782301710.035215,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://app.contentful.com",
+      "localStorage": [
+        {
+          "name": "token",
+          "value": "CFW-XEl_oG24qg6L8bRMRnhlulRpwEec_nOYKaBfd4lwV58"
+        },
+        {
+          "name": "redirect_after_login",
+          "value": "/login"
+        },
+        {
+          "name": "is_using_new_auth_app",
+          "value": "true"
+        },
+        {
+          "name": "cf_banners",
+          "value": "{\"state\":{\"hiddenBanners\":[]},\"version\":0}"
+        },
+        {
+          "name": "osano_consentmanager_tattles-cookie",
+          "value": "[]"
+        },
+        {
+          "name": "osano_consentmanager_uuid",
+          "value": "06e25d14-06f8-43d5-8226-b34b64eadf9c"
+        },
+        {
+          "name": "quick-start-popover-store",
+          "value": "{\"state\":{\"hasHydrated\":true,\"linkTasks\":[{\"id\":1,\"taskName\":\"Create a content model\",\"taskDetails\":\"\",\"linkText\":\"\",\"completed\":true,\"trackingName\":\"content_model\"},{\"id\":2,\"taskName\":\"Create example entries\",\"taskDetails\":\"\",\"linkText\":\"\",\"completed\":true,\"trackingName\":\"example_entries\"},{\"id\":3,\"taskName\":\"Integrate with source code\",\"taskDetails\":\"\",\"linkText\":\"\",\"completed\":true,\"trackingName\":\"integrate_code\"}],\"accordionTasks\":[{\"id\":4,\"taskName\":\"Customize your content\",\"taskDetails\":\"Tailor the content to your preferences\",\"linkText\":\"Customize content\",\"completed\":false,\"trackingName\":\"customise_content\"},{\"id\":5,\"taskName\":\"Organize the landing page\",\"taskDetails\":\"Adjust the fields of your landing\",\"linkText\":\"Organize landing\",\"completed\":false,\"trackingName\":\"organise_landing\"},{\"id\":6,\"taskName\":\"Deploy\",\"taskDetails\":\"Turn the content into a live product\",\"linkText\":\"Deploy\",\"completed\":false,\"trackingName\":\"deploy\"}],\"isPopoverExpanded\":true,\"isDismissMenuOpen\":false},\"version\":0}"
+        },
+        {
+          "name": "osano_consentmanager_tattles-iframe",
+          "value": "[]"
+        },
+        {
+          "name": "osano_consentmanager_tattles-script",
+          "value": "[]"
+        },
+        {
+          "name": "refresh_token",
+          "value": "null"
+        },
+        {
+          "name": "expires_at",
+          "value": "1748346508"
+        },
+        {
+          "name": "osano_consentmanager",
+          "value": "iylztNb0kLPJe0_F-mebaLZ32MX2hxKjMz_fDEXrya66Wddj71buwinSrrH0CKs1jjGs03ONMd9dOmW426wLZMRy4jg9CxZ-jwGWjvv-Bm8eBHWv01ZRH1BchtgZM23DARD6_ICq_cIX7fmVZaK-WqF60QyXeT5x7OPWB2IwW2eiM8fFeO_ySbkb5mirimpsZAYEH9kcCJibld8FCefInhJ86Z8WQIQC-HatgfO8qLPDuq3pRYv5h7iuSDtcwFBYqF7zKpsjiwQ1daRqGzPlz4PsSAKfC16SST0HuG0w19FeiWV5x_yUKsiDaqUaYZphv49onBUcVhs="
+        }
+      ]
+    },
+    {
+      "origin": "https://be.contentful.com",
+      "localStorage": [
+        {
+          "name": "ld:588a047044b03e0b3211298e:$diagnostics",
+          "value": "{\"dataSinceDate\":1747741707079,\"droppedEvents\":0,\"eventsInLastBatch\":0,\"streamInits\":[]}"
+        },
+        {
+          "name": "ld:$anonUserId",
+          "value": "5799c570-3570-11f0-a3b8-259f71a2c36e"
+        }
+      ]
+    },
+    {
+      "origin": "https://cmp.osano.com",
+      "localStorage": [
+        {
+          "name": "osano_consentmanager_39239078-882d-46c6-9235-dcd4318a5c73",
+          "value": "iylztNb0kLPJe0_F-mebaLZ32MX2hxKjMz_fDEXrya66Wddj71buwinSrrH0CKs1jjGs03ONMd9dOmW426wLZMRy4jg9CxZ-jwGWjvv-Bm8eBHWv01ZRH1BchtgZM23DARD6_ICq_cIX7fmVZaK-WqF60QyXeT5x7OPWB2IwW2eiM8fFeO_ySbkb5mirimpsZAYEH9kcCJibld8FCefInhJ86Z8WQIQC-HatgfO8qLPDuq3pRYv5h7iuSDtcwFBYqF7zKpsjiwQ1daRqGzPlz4PsSAKfC16SST0HuG0w19FeiWV5x_yUKsiDaqUaYZphv49onBUcVhs="
+        }
+      ]
+    }
+  ]
+}
