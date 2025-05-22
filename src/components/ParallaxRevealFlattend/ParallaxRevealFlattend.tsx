@@ -5,7 +5,7 @@ import { Row, Col, Typography, Layout } from "antd";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useHasMounted, useIsMobile } from "@/hooks";
-import styles from "./ParallaxReveal.module.css";
+import styles from "./ParallaxRevealFlattend.module.css";
 import { ImageDisplay, TextContent } from "./components";
 
 const { Title } = Typography;
@@ -32,7 +32,7 @@ type ParallaxRevealProps = {
   slideFourImage?: string;
 };
 
-export default function ParallaxReveal({
+export default function ParallaxRevealFlattend({
   slideOneTitle,
   slideOneSubtitle,
   slideOneImage,

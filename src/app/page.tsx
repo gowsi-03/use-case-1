@@ -1,10 +1,10 @@
 "use client";
 
-import { ParallaxReveal } from "@/components";
+import { ParallaxRevealFlattend } from "@/components";
 
 export default function HomePage() {
   return (
-    <ParallaxReveal
+    <ParallaxRevealFlattend
       slideOneTitle="Create better content. Deliver faster. Stay ahead."
       slideOneSubtitle="In a world overflowing with content...<br><br>What used to take weeks now happens in minutes."
       slideOneImage="/images/image1.webp"

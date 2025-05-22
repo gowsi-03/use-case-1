@@ -1,1 +1,1 @@
-export * from './ParallaxReveal';
+export * from './ParallaxRevealFlattend';

@@ -1,0 +1,1 @@
+export { default as ParallaxRevealFlattend } from './ParallaxRevealFlattend'
