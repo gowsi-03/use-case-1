@@ -1,0 +1,45 @@
+.textContentWrapper {
+  margin-top: 2.4rem;
+}
+
+@media (min-width: 1024px) {
+  .textContentWrapper {
+    margin-top: 0;
+  }
+}
+
+.sectionTitle :global(.ant-typography) {
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle :global(.ant-typography) {
+    font-size: 22px;
+    line-height: 28.6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle :global(.ant-typography) {
+    line-height: 29.92px;
+  }
+}
+
+.sectionPara :global(.ant-typography) {
+  font-size: 16px;
+  line-height: 26.08px;
+  margin-bottom: 2.4rem;
+  font-weight: 400;
+}
+
+@media (min-width: 1600px) {
+  .sectionPara :global(.ant-typography) {
+    font-size: 16px;
+    line-height: 26.08px;
+    margin-bottom: 2.4rem;
+    font-weight: 400;
+    letter-spacing: .3px;
+  }
+}

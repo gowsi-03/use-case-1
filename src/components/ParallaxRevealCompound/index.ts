@@ -1,0 +1,1 @@
+export { default as ParallaxRevealCompound } from './ParallaxRevealCompound'
