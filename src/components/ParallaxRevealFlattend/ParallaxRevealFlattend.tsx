@@ -143,7 +143,11 @@ export default function ParallaxRevealFlattend({
           {slides.map((section, idx) => (
             <div key={idx} style={{ marginBottom: isMobile ? 100 : 80 }}>
               <ImageDisplay
-                src={`https:${section.image || ''}`} 
+                src={
+                  section.image?.startsWith("//")
+                    ? `https:${section.image}`
+                    : section.image || ""
+                }
                 alt={section.title}
               />
               <TextContent title={section.title} subtitle={section.subtitle} />
@@ -188,7 +192,11 @@ export default function ParallaxRevealFlattend({
                 <div className={styles.imageContainer}>
                   {slides[activeIndex].image && (
                     <ImageDisplay
-                      src={`https:${slides[activeIndex].image}`}
+                      src={
+                        slides[activeIndex].image?.startsWith("//")
+                          ? `https:${slides[activeIndex].image}`
+                          : slides[activeIndex].image
+                      }
                       alt={slides[activeIndex].title}
                     />
                   )}
